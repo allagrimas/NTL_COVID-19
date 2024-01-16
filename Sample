@@ -1,0 +1,12 @@
+# Setting up the necessary packages for Google Earth Engine
+
+try:
+    import geemap, ee
+except ModuleNotFoundError:
+    if 'google.colab' in str(get_ipython()):
+        print("Package not found, installing with pip in Google Colab...")
+        !pip install geemap
+    else:
+        print("Package not found, installing with conda...")
+        !conda install -c conda-forge geemap -y
+    import geemap, ee
